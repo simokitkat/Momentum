@@ -225,7 +225,7 @@ function showWeather() {
       weatherError.textContent = "";
     } else {
       if (city.value == "") {
-        weatherError.textContent = "You entered an empty string";
+        weatherError.textContent = "Error: You entered an empty string!";
       } else {
         weatherError.textContent = "Error: You entered an invalid city!";
       }
@@ -288,9 +288,88 @@ function showQuoteOfTheDay() {
 
 //Now that I created the function, I need to make two things:
 // [1] add the function in the window.onload function above at line 61 to make it generate a random quote everytime the page reloads
-//[2] make an onclick function for the quoteBtn that calls
+// [2] make an onclick function for the quoteBtn that calls
 
 quoteBtn.addEventListener("click", showQuoteOfTheDay);
+
+/********************************************************************************
+ ********************************************************************************
+ *******************************************************************************/
+
+//Audio Player
+
+import playList from "./playList.js";
+
+const audio = new Audio();
+let audioPlayer = document.querySelector(".play");
+let isPlay = false;
+let playNum = 0;
+let playPrevBtn = document.querySelector(".play-prev");
+let playNextBtn = document.querySelector(".play-next");
+
+function playAudio() {
+  audio.src = playList[playNum].src;
+  audio.currentTime = 0;
+  audio.play();
+  isPlay = true;
+}
+
+function pauseAudio() {
+  audio.pause();
+  isPlay = false;
+}
+
+function toPlayOrNotToPlay() {
+  if (isPlay) {
+    pauseAudio();
+  } else {
+    playAudio();
+  }
+
+  audioPlayer.classList.toggle("pause");
+}
+
+function playNext() {
+  if (playNum == 3) {
+    playNum = 0;
+    playAudio();
+  } else {
+    playNum++;
+    playAudio();
+  }
+
+  audioPlayer.classList.add("pause");
+}
+
+function playPrev() {
+  if (playNum == 0) {
+    playNum = 3;
+    playAudio();
+  } else {
+    playNum--;
+    playAudio();
+  }
+
+  audioPlayer.classList.add("pause");
+}
+
+audioPlayer.addEventListener("click", toPlayOrNotToPlay);
+playNextBtn.addEventListener("click", playNext);
+playPrevBtn.addEventListener("click", playPrev);
+
+//The element creation process:
+
+let playListUl = document.querySelector(".play-list");
+
+for (let i = 0; i < playList.length; i++) {
+  let li = document.createElement("li");
+
+  li.classList.add("play-item");
+
+  li.textContent = playList[i].title;
+
+  playListUl.appendChild(li);
+}
 
 /********************************************************************************
  ********************************************************************************
