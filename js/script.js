@@ -17,7 +17,7 @@ const options = {
 };
 
 function showDate() {
-  date.textContent = new Date().toLocaleDateString("ru-RU", options);
+  date.textContent = new Date().toLocaleDateString("en-US", options);
 }
 
 setInterval(showDate, 1000);
