@@ -28,10 +28,47 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  height: 30vh;
+  /* height: 30vh; */
   min-height: 220px;
   padding: 20px;
 }
+
+/* MY CSS CODE */
+.player {
+  max-width: 300px;
+  max-height: 100%;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.advanced-player {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.progress input {
+  width: 100%;
+  max-width: 250px;
+}
+
+.sound input {
+  width: 30%;
+  max-width: 100px;
+  margin-left: 20px;
+}
+
+.sound i {
+  cursor: pointer;
+}
+
+/* END OF MY CSS CODE */
 
 .player-controls {
   display: flex;
@@ -39,6 +76,8 @@ body {
   justify-content: space-between;
   width: 120px;
   margin-bottom: 28px;
+  /* my css addings */
+  margin-bottom: 0;
 }
 
 .play-list {
@@ -67,7 +106,8 @@ body {
   font-weight: 900;
 }
 
-.item-active::before {
+.item-active::before,
+.item-active {
   color: #C5B358;
 }
 

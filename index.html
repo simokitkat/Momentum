@@ -7,6 +7,11 @@
   <link href="assets/favicon.ico" rel="shortcut icon" />
   <link rel="stylesheet" href="css/owfont-regular.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <title>momentum</title>
 </head>
 
@@ -19,6 +24,17 @@
         <button class="play-next player-icon"></button>
       </div>
       <ul class="play-list"></ul>
+      <div class="advanced-player">
+        <span class="progress">
+          <span class="current-time">00:00</span> / <span class="duration">00:00</span>
+          <input type="range" name="track-progress" id="track-progress" min="0" max="100">
+        </span>
+        <br>
+        <span class="sound">
+          <i class="fa-solid fa-volume-low"></i>
+          <input type="range" name="sound-progress" id="sound-progress" min="0" max="100">
+        </span>
+      </div>
     </div>
     <div class="weather">
       <input type="text" class="city" placeholder="Enter City" value="Minsk" />
