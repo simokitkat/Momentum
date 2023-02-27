@@ -206,7 +206,7 @@ function showWeather() {
 
       wind.textContent = `Скорость ветра: ${Math.round(
         jsObject.wind.speed
-      )} m/s`;
+      )} м/с`;
 
       humidity.textContent = `Влажность: ${Math.round(
         jsObject.main.humidity
